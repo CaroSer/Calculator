@@ -4,16 +4,17 @@ let exp=document.getElementById('exp');
 let root=document.getElementById('root');
 let del=document.getElementById('del');
 let ac=document.getElementById('ac');
-let division=document.getElementById('division');
-let rest=document.getElementById('rest');
 let dot=document.getElementById('dot');
-let equal=document.getElementById('add');
-let multiply=document.getElementById('equal');
-let add=document.getElementById('multiply');
+let signs=Array.from(document.getElementsByClassName('sign'))
+
+signs.forEach(sign => {
+    sign.addEventListener('click',()=>{
+    display.value+=sign.innerText})
+});
 
 
 ac.addEventListener('click',()=>{
-    display.value="10"
+    display.value=""
 })
 
 del.addEventListener('click',()=>{
@@ -35,4 +36,6 @@ exp.addEventListener('click',()=>{
     let contentExp=((parseFloat(display.value))**2)
     display.value=contentExp
 })
+
+
 })
