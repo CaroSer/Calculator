@@ -26,5 +26,8 @@ root.addEventListener('click',()=>{
     display.innerText=contentExp
 })
 
+dot.addEventListener('click',()=>{
+    if(!display.innerText.includes('.')) display.innerText+="."
+})
 
 })
