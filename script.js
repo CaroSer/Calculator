@@ -11,23 +11,28 @@ let equal=document.getElementById('add');
 let multiply=document.getElementById('equal');
 let add=document.getElementById('multiply');
 
+
 ac.addEventListener('click',()=>{
-    display.innerText=""
+    display.value=""
 })
 
 del.addEventListener('click',()=>{
     let displayContent=(display.innerText).split('');
     displayContent.pop();
-    display.innerText=displayContent
+    display.value=displayContent
 })
 
 root.addEventListener('click',()=>{
-    let contentExp=(Math.sqrt(parseFloat(display.innerText))).toFixed(13)
-    display.innerText=contentExp
+    let contentRoot=Math.sqrt(parseFloat(display.innerText))
+    display.value=contentRoot
 })
 
 dot.addEventListener('click',()=>{
-    if(!display.innerText.includes('.')) display.innerText+="."
+    if(!display.value.includes('.')) display.value+="."
 })
 
+exp.addEventListener('click',()=>{
+    let contentExp=((parseFloat(display.value))**2)
+    display.value=contentExp
+})
 })
