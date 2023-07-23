@@ -17,6 +17,12 @@
     border-width: 5px;
     border-style: solid;
     border-color: whitesmoke;
+    color: white;    
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 55px;
+    font-weight:bolder;
 }
 
 #numCont{
