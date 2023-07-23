@@ -18,8 +18,24 @@
 
 #numCont{
     margin-top: 30px;
-    background-color:#E84545;
     height: 350px;
     width: 410px;
     border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.numBut{
+    background-color:#E84545;
+    height: 56px;
+    width: 95px;
+    border-radius: 30px;
+    color: white;    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: larger;
+    font-weight:bolder;
 }
