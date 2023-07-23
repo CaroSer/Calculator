@@ -14,4 +14,10 @@ let add=document.getElementById('multiply');
 ac.addEventListener('click',()=>{
     display.innerText=""
 })
+
+del.addEventListener('click',()=>{
+    let displayContent=(display.innerText).split('');
+    displayContent.pop();
+    display.innerText=displayContent
+})
 })
