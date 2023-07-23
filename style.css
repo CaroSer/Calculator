@@ -14,6 +14,9 @@
     height: 100px;
     width: 410px;
     border-radius: 30px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: whitesmoke;
 }
 
 #numCont{
@@ -25,6 +28,7 @@
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
+    
 }
 
 .numBut{
@@ -38,4 +42,5 @@
     align-items: center;
     font-size: larger;
     font-weight:bolder;
+    border-color: whitesmoke;
 }
