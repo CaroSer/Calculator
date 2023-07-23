@@ -13,17 +13,17 @@ let add=document.getElementById('multiply');
 
 
 ac.addEventListener('click',()=>{
-    display.value=""
+    display.value="10"
 })
 
 del.addEventListener('click',()=>{
-    let displayContent=(display.innerText).split('');
+    let displayContent=(display.value).split('');
     displayContent.pop();
     display.value=displayContent
 })
 
 root.addEventListener('click',()=>{
-    let contentRoot=Math.sqrt(parseFloat(display.innerText))
+    let contentRoot=Math.sqrt(parseFloat(display.value))
     display.value=contentRoot
 })
 
