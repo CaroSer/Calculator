@@ -6,12 +6,17 @@ let del=document.getElementById('del');
 let ac=document.getElementById('ac');
 let dot=document.getElementById('dot');
 let signs=Array.from(document.getElementsByClassName('sign'))
+let numBut=Array.from(document.getElementsByClassName('numBut'))
+
+numBut.forEach(num => {
+    num.addEventListener('click',()=>{
+    display.value+=num.innerText})
+});
 
 signs.forEach(sign => {
     sign.addEventListener('click',()=>{
     display.value+=sign.innerText})
 });
-
 
 ac.addEventListener('click',()=>{
     display.value=""
