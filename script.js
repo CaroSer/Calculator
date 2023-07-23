@@ -20,4 +20,11 @@ del.addEventListener('click',()=>{
     displayContent.pop();
     display.innerText=displayContent
 })
+
+root.addEventListener('click',()=>{
+    let contentExp=(Math.sqrt(parseFloat(display.innerText))).toFixed(13)
+    display.innerText=contentExp
+})
+
+
 })
