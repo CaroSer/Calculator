@@ -3,4 +3,23 @@
     height:550px;
     width: 450px;
     border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#display{
+    background-color:#E84545;
+    height: 100px;
+    width: 410px;
+    border-radius: 30px;
+}
+
+#numCont{
+    margin-top: 30px;
+    background-color:#E84545;
+    height: 350px;
+    width: 410px;
+    border-radius: 30px;
 }
