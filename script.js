@@ -8,27 +8,73 @@ let dot=document.getElementById('dot');
 let signs=Array.from(document.getElementsByClassName('sign'))
 let numBut=Array.from(document.getElementsByClassName('numBut'))
 let equal=document.getElementById('equal')
+let operators = {
+    '+': { precedence: 1 },
+    '-': { precedence: 1 },
+    'x': { precedence: 2 },
+    '÷': { precedence: 2 },
+};
 
-equal.addEventListener('click',()=>{
-    let expression=(display.value).split('');
-    for (let index = 0; index < expression.length; index++) {
-        
-            if (expression[index]=="÷"){
-                display.value=parseFloat(expression[index-1])/parseFloat(expression[index+1])
-            }
+function applyOperator(operator, num1, num2) {
+    switch (operator) {
+        case '+':
+            return num1 + num2;
+        case '-':
+            return num1 - num2;
+        case 'x':
+            return num1 * num2;
+        case '÷':
+            return num1 / num2;
+        default:
+            return NaN;
+    }
+}
 
-            if (expression[index]=="x"){
-                display.value=parseFloat(expression[index-1])*parseFloat(expression[index+1])
-            }
-            
-            if (expression[index]=="-"){
-                display.value=parseFloat(expression[index-1])-parseFloat(expression[index+1])
-            }
+function evaluatePostfix(postfixExpression) {
+    let stack = [];
+    for (let token of postfixExpression) {
+        if (!isNaN(parseFloat(token))) {
+            stack.push(parseFloat(token));
+        } else if (operators[token]) {
+            let num2 = stack.pop();
+            let num1 = stack.pop();
+            stack.push(applyOperator(token, num1, num2));
+        }
+    }
+    return stack[0];
+}
 
-            if (expression[index]=="+"){
-                display.value=parseFloat(expression[index-1])+parseFloat(expression[index+1])
+function shuntingYard(input) {
+    let output = [];
+    let operatorStack = [];
+
+    for (let token of input) {
+        if (!isNaN(parseFloat(token))) {
+            output.push(token);
+        } else if (operators[token]) {
+            while (
+                operatorStack.length > 0 &&
+                operators[operatorStack[operatorStack.length - 1]].precedence >= operators[token].precedence
+            ) {
+                output.push(operatorStack.pop());
             }
-}})
+            operatorStack.push(token);
+        }
+    }
+
+    while (operatorStack.length > 0) {
+        output.push(operatorStack.pop());
+    }
+
+    return output;
+}
+
+equal.addEventListener('click', () => {
+    let expression = display.value.split(/([+\-x÷])/).filter(Boolean);
+    let postfixExpression = shuntingYard(expression);
+    let result = evaluatePostfix(postfixExpression);
+    display.value = result;
+});
 
 numBut.forEach(num => {
     num.addEventListener('click',()=>{
@@ -37,7 +83,7 @@ numBut.forEach(num => {
 
 signs.forEach(sign => {
     sign.addEventListener('click',()=>{
-    display.value+=sign.innerText})
+            display.value+=sign.innerText})
 });
 
 ac.addEventListener('click',()=>{
