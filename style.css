@@ -1,6 +1,7 @@
+/* Styles for the base container of the calculator */
 #base{
     background-color: #2B2E4A;
-    height:550px;
+    height: 550px;
     width: 450px;
     border-radius: 30px;
     display: flex;
@@ -9,20 +10,22 @@
     flex-direction: column;
 }
 
+/* Styles for the display area of the calculator */
 #display{
-    background-color:#E84545;
+    background-color: #E84545;
     height: 100px;
     width: 410px;
     border-radius: 30px;
     border-width: 5px;
     border-style: solid;
     border-color: whitesmoke;
-    color: white;    
+    color: white;
     text-align: end;
     font-size: 55px;
-    font-weight:bolder;
+    font-weight: bolder;
 }
 
+/* Styles for the container of number buttons */
 #numCont{
     margin-top: 30px;
     height: 350px;
@@ -32,19 +35,19 @@
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    
 }
 
+/* Styles for all the buttons */
 button{
-    background-color:#E84545;
+    background-color: #E84545;
     height: 56px;
     width: 95px;
     border-radius: 30px;
-    color: white;    
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: larger;
-    font-weight:bolder;
+    font-weight: bolder;
     border-color: whitesmoke;
 }
